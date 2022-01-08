@@ -39,8 +39,7 @@ namespace WpfBattleship
                 i++;
             }
             if (specialdigit == false)
-            { 
-
+            {
                 var multiplayer = new Multiplayer();
                 multiplayer.ShowDialog();
             }

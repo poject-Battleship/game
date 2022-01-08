@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Image Source="/battleship.jpg" Stretch="UniformToFill"/>
         <Button Name="singleplayer" Content="SinglePlayer" HorizontalAlignment="Center"  Margin="0,-80,0,0" VerticalAlignment="Center" Click="OpenSingleName"/>
         <Button Name="multiplayer" Content="MultiPlayer" HorizontalAlignment="Center"  Margin="0,80,0,0" VerticalAlignment="Center" Click="OpenMultiName"/>
     </Grid>

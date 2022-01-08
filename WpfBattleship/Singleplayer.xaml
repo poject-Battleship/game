@@ -12,11 +12,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-        <Grid.RowDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="This is your territory" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <ListBox Grid.Row="1" Name="playername"/>
         </Grid>
