@@ -24,22 +24,22 @@ namespace WpfBattleship
 
         private void OpenSingleplayer(object sender, RoutedEventArgs e)
         {
-            var playername = playerName.Text;
+            string playername = playerName.Text;
             bool specialdigit = false;
             int i = 0;
-                while (i<playername.Length && specialdigit==false)
+            while (i < playername.Length && specialdigit==false)
+            {
+                char temp = playername[i];
+                if (!Char.IsLetterOrDigit(temp))
                 {
-                    char temp = playername[i];
-                    if (!Char.IsLetterOrDigit(temp))
-                    {
                     specialdigit = true;
-                    }
-                i++;
                 }
+                i++;
+            }
             if (specialdigit==false)
-            { 
-            var singleplayer = new Singleplayer();
-            singleplayer.ShowDialog();
+            {
+                var singleplayer = new Singleplayer();
+                singleplayer.ShowDialog();
             }
             Close();
         }
