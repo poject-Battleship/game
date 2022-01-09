@@ -31,10 +31,6 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -49,11 +45,27 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0">A</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0">B</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0">C</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0">D</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0">E</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0">F</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0">G</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0">H</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0">I</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0">J</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1">1</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2">2</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3">3</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4">4</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5">5</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6">6</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7">7</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8">8</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9">9</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10">10</TextBlock>
             </Grid>
 
 
