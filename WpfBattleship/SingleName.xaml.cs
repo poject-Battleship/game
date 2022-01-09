@@ -17,6 +17,8 @@ namespace WpfBattleship
     /// </summary>
     public partial class SingleName : Window
     {
+        
+
         public SingleName()
         {
             InitializeComponent();
