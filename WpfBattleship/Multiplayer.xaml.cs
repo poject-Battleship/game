@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -60,10 +61,23 @@ namespace WpfBattleship
             }
            
         }
+
+        string[] ships = new string[] { "EnemyButton1", "EnemyButton12", "EnemyButton23", "EnemyButton34", "EnemyButton45", "EnemyButton56", "EnemyButton67", "EnemyButton78", "EnemyButton89", "EnemyButton100" };
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
-            b.Background = b.Background == Brushes.Red ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD")) : Brushes.Red;
+
+            if (ships.Contains(b.Name))
+            {
+                b.Background = b.Background == Brushes.Red ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD")) : Brushes.Red;
+            }
+
+            else
+            {
+                b.Background = b.Background == Brushes.Cyan ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD")) : Brushes.Cyan;
+            }
         }
     }
 }
