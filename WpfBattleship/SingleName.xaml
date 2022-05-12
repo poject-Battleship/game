@@ -12,8 +12,8 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Enter your player name:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <TextBox Grid.Row="1" Name="playerName" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8"/>
-        <Button Grid.Row="2" Name="ok" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="15" Click="OpenSingleplayer" />
+        <TextBlock Grid.Row="0" Text="Enter your player name:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0"/>
+        <TextBox Grid.Row="1" Name="playerName" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8" Width="150"/>
+        <Button Grid.Row="2" Name="ok" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,26,0,0" Click="OpenSingleplayer" Width="60" />
     </Grid>
 </Window>
