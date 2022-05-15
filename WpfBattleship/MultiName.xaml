@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBattleship"
         mc:Ignorable="d"
-        Title="MultiName" Height="400" Width="300">
+        Title="Multi Player" Height="500" Width="600" FontFamily="Impact">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF212121"/>
+            <GradientStop Color="#FF979797" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -14,10 +24,10 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Enter player1 name:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0"/>
-        <TextBox Grid.Row="1" Name="player1Name" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8" Width="150"/>
-        <TextBlock Grid.Row="2" Text="Enter player2 name:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,45,0,0"/>
-        <TextBox Grid.Row="3" Name="player2Name" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8" Width="150" />
-        <Button Grid.Row="4" Name="ok" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="15" Click="OpenMultiplayer" Width="60" />
+        <TextBlock Grid.Row="0" Text="Enter player X name:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Height="40" Width="250" Foreground="#FFE2DFDF"/>
+        <TextBox Grid.Row="1" Name="player1Name" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8" Width="220" Height="40" Background="#FFCFCFCF" BorderBrush="Black" FontSize="20"/>
+        <TextBlock Grid.Row="2" Text="Enter player Y name:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,45,0,0" Height="39" Width="250" Foreground="#FFE2DFDF"/>
+        <TextBox Grid.Row="3" Name="player2Name" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8" Width="220" Height="40" Background="#FFCFCFCF" BorderBrush="Black" FontSize="20" />
+        <Button Grid.Row="4" Name="ok" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Click="OpenMultiplayer" Width="60" Height="30" BorderBrush="Black" FontSize="20" />
     </Grid>
 </Window>

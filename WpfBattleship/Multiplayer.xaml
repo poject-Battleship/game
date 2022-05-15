@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBattleship"
         mc:Ignorable="d"
-        Title="Multiplayer" Height="450" Width="800">
+        Title="Multiplayer" Height="450" Width="800" FontFamily="Impact">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF212121"/>
+            <GradientStop Color="#FF979797" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -17,7 +23,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="9*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="This is your territory" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="0" Text="This is your territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" />
             <Grid Name="Board" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -46,26 +52,26 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0">A</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0">B</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0">C</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0">D</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0">E</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0">F</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0">G</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0">H</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0">I</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0">J</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1">1</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2">2</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3">3</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4">4</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5">5</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6">6</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7">7</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8">8</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9">9</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10">10</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0" Foreground="#FFE2DFDF">A</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0" Foreground="#FFE2DFDF">B</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0" Foreground="#FFE2DFDF">C</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0" Foreground="#FFE2DFDF">D</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0" Foreground="#FFE2DFDF">E</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0" Foreground="#FFE2DFDF">F</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0" Foreground="#FFE2DFDF">G</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0" Foreground="#FFE2DFDF">H</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0" Foreground="#FFE2DFDF">I</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0" Foreground="#FFE2DFDF">J</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1" Foreground="#FFE2DFDF">1</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2" Foreground="#FFE2DFDF">2</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3" Foreground="#FFE2DFDF">3</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4" Foreground="#FFE2DFDF">4</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5" Foreground="#FFE2DFDF">5</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6" Foreground="#FFE2DFDF">6</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7" Foreground="#FFE2DFDF">7</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8" Foreground="#FFE2DFDF">8</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9" Foreground="#FFE2DFDF">9</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10" Foreground="#FFE2DFDF">10</TextBlock>
             </Grid>
 
 
@@ -77,7 +83,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="9*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="This is enemy territory" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock Text="This is enemy territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" />
             <Grid Name="Boardd" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -106,26 +112,26 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0">A</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0">B</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0">C</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0">D</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0">E</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0">F</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0">G</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0">H</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0">I</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0">J</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1">1</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2">2</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3">3</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4">4</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5">5</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6">6</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7">7</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8">8</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9">9</TextBlock>
-                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10">10</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0" Foreground="#FFE2DFDF">A</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0" Foreground="#FFE2DFDF">B</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0" Foreground="#FFE2DFDF">C</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0" Foreground="#FFE2DFDF">D</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0" Foreground="#FFE2DFDF">E</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0" Foreground="#FFE2DFDF">F</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0" Foreground="#FFE2DFDF">G</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0" Foreground="#FFE2DFDF">H</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0" Foreground="#FFE2DFDF">I</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0" Foreground="#FFE2DFDF">J</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1" Foreground="#FFE2DFDF">1</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2" Foreground="#FFE2DFDF">2</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3" Foreground="#FFE2DFDF">3</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4" Foreground="#FFE2DFDF">4</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5" Foreground="#FFE2DFDF">5</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6" Foreground="#FFE2DFDF">6</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7" Foreground="#FFE2DFDF">7</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8" Foreground="#FFE2DFDF">8</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9" Foreground="#FFE2DFDF">9</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10" Foreground="#FFE2DFDF">10</TextBlock>
             </Grid>
         </Grid>
     </Grid>
