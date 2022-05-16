@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfBattleship
+namespace NationalInstruments
 {
     /// <summary>
     /// Interaction logic for MultiName.xaml

@@ -10,28 +10,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfBattleship
+namespace NationalInstruments
 {
     /// <summary>
     /// Interaction logic for SingleName.xaml
     /// </summary>
     public partial class SingleName : Window
     {
-        
-
         public SingleName()
         {
             InitializeComponent();
         }
-
         private void OpenSingleplayer(object sender, RoutedEventArgs e)
         {
-            string playername = playerName.Text;
+            string playerName = this.playerName.Text;
             bool specialdigit = false;
             int i = 0;
-            while (i < playername.Length && specialdigit==false)
+            while (i < playerName.Length && specialdigit==false)
             {
-                char temp = playername[i];
+                char temp = playerName[i];
                 if (!Char.IsLetterOrDigit(temp))
                 {
                     specialdigit = true;
@@ -40,7 +37,7 @@ namespace WpfBattleship
             }
             if (specialdigit==false)
             {
-                var singleplayer = new Singleplayer();
+                var singleplayer = new SinglePlayer();
                 singleplayer.ShowDialog();
             }
             Close();
