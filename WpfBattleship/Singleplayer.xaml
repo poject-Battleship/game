@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NationalInstruments"
         mc:Ignorable="d"
-        Title="Single Player" Height="450" Width="800" FontFamily="Impact">
+        Title="Single Player" Height="650" Width="800" FontFamily="Impact" ResizeMode="NoResize" SizeToContent="Manual">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF212121"/>
@@ -19,12 +19,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="174*"/>
+                <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="This is your territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" />
-            <Grid Name="Board" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock Name="playerName" Text="Player Name" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="136" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" Grid.Row="1" Text="Available ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" Text="Destroyed ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <Grid Name="Board" Grid.Row="1" VerticalAlignment="Top" Height="355" Margin="0,188,0,0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -79,10 +84,63 @@
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="174*"/>
+                <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="This is enemy territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" FontStretch="Normal" />
+            <TextBlock Text="This is AI territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" FontStretch="Normal" />
+            <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" Grid.Row="1" Text="Press S + B to show the enemy ships!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" Foreground="#FFE2DFDF"/>
+            <Grid Name="Boardd" Grid.Row="2" Height="355" VerticalAlignment="Top" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="1" Grid.Column="0" Foreground="#FFE2DFDF">A</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="2" Grid.Column="0" Foreground="#FFE2DFDF">B</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="3" Grid.Column="0" Foreground="#FFE2DFDF">C</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="4" Grid.Column="0" Foreground="#FFE2DFDF">D</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="5" Grid.Column="0" Foreground="#FFE2DFDF">E</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="6" Grid.Column="0" Foreground="#FFE2DFDF">F</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="7" Grid.Column="0" Foreground="#FFE2DFDF">G</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="8" Grid.Column="0" Foreground="#FFE2DFDF">H</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="9" Grid.Column="0" Foreground="#FFE2DFDF">I</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="10" Grid.Column="0" Foreground="#FFE2DFDF">J</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="1" Foreground="#FFE2DFDF">1</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="2" Foreground="#FFE2DFDF">2</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="3" Foreground="#FFE2DFDF">3</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="4" Foreground="#FFE2DFDF">4</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="5" Foreground="#FFE2DFDF">5</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="6" Foreground="#FFE2DFDF">6</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="7" Foreground="#FFE2DFDF">7</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="8" Foreground="#FFE2DFDF">8</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9" Foreground="#FFE2DFDF">9</TextBlock>
+                <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10" Foreground="#FFE2DFDF">10</TextBlock>
+            </Grid>
+
+
         </Grid>
     </Grid>
 </Window>

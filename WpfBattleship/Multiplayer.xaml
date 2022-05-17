@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NationalInstruments"
         mc:Ignorable="d"
-        Title="Multiplayer" Height="450" Width="800" FontFamily="Impact">
+        Title="Multiplayer" Height="650" Width="800" FontFamily="Impact">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF212121"/>
@@ -19,12 +19,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="174*"/>
+                <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="This is your territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" />
-            <Grid Name="Board" Grid.Row="2">
+            <TextBlock Name="PlayerOneNameMulti" Text="Player One Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="238" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" Grid.Row="1" Text="Available ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" Text="Destroyed ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <Grid Name="Board" Grid.Row="2" VerticalAlignment="Top" Height="355" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -73,18 +78,25 @@
                 <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="9" Foreground="#FFE2DFDF">9</TextBlock>
                 <TextBlock FontSize="16" TextAlignment="Center"  Grid.Row="0" Grid.Column="10" Foreground="#FFE2DFDF">10</TextBlock>
             </Grid>
+            
+            
 
 
         </Grid>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="174*"/>
+                <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="This is enemy territory" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" />
-            <Grid Name="Boardd" Grid.Row="2">
+            <TextBlock Name="PlayerTwoNameMulti" Text="Player Two Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="240" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" Grid.Row="1" Text="Available ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" Text="Destroyed ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <Grid Name="Boardd" Grid.Row="2" Height="355" VerticalAlignment="Top" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
