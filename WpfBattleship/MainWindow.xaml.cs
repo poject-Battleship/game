@@ -27,14 +27,14 @@ namespace NationalInstruments
 
         private void OpenSingleName(object sender, RoutedEventArgs e)
         {
-            var singlename = new SingleName();
-            singlename.ShowDialog();
+            var singleName = new SingleName();
+            singleName.ShowDialog();
         }
 
         private void OpenMultiName(object sender, RoutedEventArgs e)
-        {   
-            var multiname = new MultiName();
-            multiname.ShowDialog();
+        {
+            var multiName = new MultiName();
+            multiName.ShowDialog();
         }
     }
 }

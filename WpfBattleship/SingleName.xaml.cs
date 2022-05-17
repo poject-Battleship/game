@@ -21,24 +21,24 @@ namespace NationalInstruments
         {
             InitializeComponent();
         }
-        private void OpenSingleplayer(object sender, RoutedEventArgs e)
+        private void OpenSinglePlayer(object sender, RoutedEventArgs e)
         {
             string playerName = this.playerName.Text;
-            bool specialdigit = false;
+            bool specialDigit = false;
             int i = 0;
-            while (i < playerName.Length && specialdigit==false)
+            while (i < playerName.Length && specialDigit == false)
             {
                 char temp = playerName[i];
-                if (!Char.IsLetterOrDigit(temp))
+                if (!char.IsLetterOrDigit(temp))
                 {
-                    specialdigit = true;
+                    specialDigit = true;
                 }
                 i++;
             }
-            if (specialdigit==false)
+            if (specialDigit == false)
             {
-                var singleplayer = new SinglePlayer();
-                singleplayer.ShowDialog();
+                var singlePlayer = new SinglePlayer();
+                singlePlayer.ShowDialog();
             }
             Close();
         }

@@ -27,18 +27,18 @@ namespace NationalInstruments
             var player1name = player1Name.Text;
             var player2name = player2Name.Text;
             string names = player1name + player2name;
-            bool specialdigit = false;
+            bool specialDigit = false;
             int i = 0;
-            while (i < names.Length && specialdigit == false)
+            while (i < names.Length && specialDigit == false)
             {
                 char temp = names[i];
-                if (!Char.IsLetterOrDigit(temp))
+                if (!char.IsLetterOrDigit(temp))
                 {
-                    specialdigit = true;
+                    specialDigit = true;
                 }
                 i++;
             }
-            if (specialdigit == false)
+            if (specialDigit == false)
             {
                 var multiplayer = new Multiplayer();
                 multiplayer.ShowDialog();
