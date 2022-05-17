@@ -25,6 +25,9 @@ namespace NationalInstruments
         private List<Button> _p1Territory = new List<Button>();
         private List<Button> _p2Territory = new List<Button>();
         private GameState _currentState = GameState.Player1;
+
+        public string Player1name;
+        public string Player2name;
         public Multiplayer()
         {
             InitializeComponent();

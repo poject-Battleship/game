@@ -23,12 +23,12 @@ namespace NationalInstruments
         }
         private void OpenSinglePlayer(object sender, RoutedEventArgs e)
         {
-            string playerName = this.playerName.Text;
+            string playerNameTextBox = this.playerNameTextBox.Text;
             bool specialDigit = false;
             int i = 0;
-            while (i < playerName.Length && specialDigit == false)
+            while (i < playerNameTextBox.Length && specialDigit == false)
             {
-                char temp = playerName[i];
+                char temp = playerNameTextBox[i];
                 if (!char.IsLetterOrDigit(temp))
                 {
                     specialDigit = true;
@@ -39,6 +39,7 @@ namespace NationalInstruments
             {
                 var singlePlayer = new SinglePlayer();
                 singlePlayer.ShowDialog();
+                singlePlayer.PlayerName = playerNameTextBox;
             }
             Close();
         }

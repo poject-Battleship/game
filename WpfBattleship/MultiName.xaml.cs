@@ -42,6 +42,8 @@ namespace NationalInstruments
             {
                 var multiplayer = new Multiplayer();
                 multiplayer.ShowDialog();
+                multiplayer.Player1name = player1name;
+                multiplayer.Player2name = player2name;
             }
 
             Close();
