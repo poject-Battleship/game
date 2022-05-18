@@ -19,11 +19,10 @@ namespace NationalInstruments
     /// </summary>
     public partial class SinglePlayer : Window
     {
-        public string PlayerName;
-        public SinglePlayer()
+        public SinglePlayer(string playerName)
         {
-            //playerName.Text = PlayerName;
             InitializeComponent();
+            this.playerName.Text = playerName;
             int count = 1;
 
             for (int i = 1; i < 11; i++)

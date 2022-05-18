@@ -23,7 +23,7 @@
                 <RowDefinition Height="174*"/>
                 <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="PlayerOneNameMulti" Text="Player One Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="238" />
+            <TextBlock Name="PlayerOneName" Text="Player One Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="238" />
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
             <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
@@ -90,7 +90,7 @@
                 <RowDefinition Height="174*"/>
                 <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="PlayerTwoNameMulti" Text="Player Two Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="240" />
+            <TextBlock Name="PlayerTwoName" Text="Player Two Name Multi" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="240" />
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
             <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>

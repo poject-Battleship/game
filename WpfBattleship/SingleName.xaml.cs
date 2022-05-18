@@ -37,9 +37,8 @@ namespace NationalInstruments
             }
             if (specialDigit == false)
             {
-                var singlePlayer = new SinglePlayer();
+                var singlePlayer = new SinglePlayer(playerNameTextBox);
                 singlePlayer.ShowDialog();
-                singlePlayer.PlayerName = playerNameTextBox;
             }
             Close();
         }

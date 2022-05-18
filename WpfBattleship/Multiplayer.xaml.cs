@@ -26,11 +26,12 @@ namespace NationalInstruments
         private List<Button> _p2Territory = new List<Button>();
         private GameState _currentState = GameState.Player1;
 
-        public string Player1name;
-        public string Player2name;
-        public Multiplayer()
+        public Multiplayer(string player1Name, string player2Name)
         {
             InitializeComponent();
+
+            PlayerOneName.Text = player1Name;
+            PlayerTwoName.Text = player2Name;
 
             int count = 1;
 
@@ -49,7 +50,6 @@ namespace NationalInstruments
 
                     count++;
                 }
-
             }
 
             count = 1;

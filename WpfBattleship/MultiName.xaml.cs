@@ -40,10 +40,8 @@ namespace NationalInstruments
             }
             if (specialDigit == false)
             {
-                var multiplayer = new Multiplayer();
+                var multiplayer = new Multiplayer(player1name, player2name);
                 multiplayer.ShowDialog();
-                multiplayer.Player1name = player1name;
-                multiplayer.Player2name = player2name;
             }
 
             Close();
