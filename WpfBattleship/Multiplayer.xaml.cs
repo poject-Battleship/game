@@ -26,6 +26,13 @@ namespace NationalInstruments
         private List<Button> _p2Territory = new List<Button>();
         private GameState _currentState = GameState.Player1;
 
+        private string _player1Name;
+        private string _player2Name;
+        private string _winner;
+        private int _numOfRounds;
+        private int _player1Hits;
+        private int _player2Hits;
+
         public Multiplayer(string player1Name, string player2Name)
         {
             InitializeComponent();
@@ -70,6 +77,13 @@ namespace NationalInstruments
                 }
             }
             Boardd.Visibility = Visibility.Hidden;
+            
+            _player1Name = "Béla";
+            _player1Hits = 15;
+            _player2Name = "Pista";
+            _player2Hits = 14;
+            _winner = "Béla";
+            _numOfRounds = 30;
         }
 
         private string[] _ships = new string[]
@@ -131,6 +145,17 @@ namespace NationalInstruments
                     _currentState = GameState.Player1;
                     break;
             }
+            using var ctx = new TorpedoContext();
+            ctx.Database.EnsureCreated();
+
+            var game = new Game(null, "multi");
+            ctx.Game.Add(game);
+            var torpedoStatP1 = new TorpedoStats(null, game, _player1Name, _winner, _numOfRounds, _player1Hits);
+            var torpedoStatP2 = new TorpedoStats(null, game, _player2Name, _winner, _numOfRounds, _player2Hits);
+            ctx.Torpedo.Add(torpedoStatP1);
+            ctx.Torpedo.Add(torpedoStatP2);
+
+            ctx.SaveChanges();
         }
     }
 }

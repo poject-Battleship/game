@@ -19,6 +19,10 @@ namespace NationalInstruments
     /// </summary>
     public partial class SinglePlayer : Window
     {
+        private string _playerName;
+        private string _winner;
+        private int _numOfRounds;
+        private int _playerHits;
         public SinglePlayer(string playerName)
         {
             InitializeComponent();
@@ -40,6 +44,11 @@ namespace NationalInstruments
                     count++;
                 }
             }
+
+            _playerName = "Béla";
+            _winner = "Béla";
+            _numOfRounds = 30;
+            _playerHits = 15;
         }
 
         private int _turns = 0;
@@ -69,6 +78,18 @@ namespace NationalInstruments
             }
 
             _turns++;
+            
+            using var ctx = new TorpedoContext();
+            ctx.Database.EnsureCreated();
+
+            var game = new Game(null, "single");
+            ctx.Game.Add(game);
+            var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
+            ctx.Torpedo.Add(torpedoStat);
+
+            //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
+
+            ctx.SaveChanges();
         }
     }
 }
