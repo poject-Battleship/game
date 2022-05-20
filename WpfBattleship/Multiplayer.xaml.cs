@@ -77,7 +77,6 @@ namespace NationalInstruments
                 }
             }
             Boardd.Visibility = Visibility.Hidden;
-            
             _player1Name = "Béla";
             _player1Hits = 15;
             _player2Name = "Pista";

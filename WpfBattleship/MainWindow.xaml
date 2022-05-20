@@ -8,7 +8,7 @@
         Title="Battleship War" Height="450" Width="800" Background="{x:Null}">
     <Grid>
         <Image Source="/battleship.jpg" Stretch="UniformToFill"/>
-        <Button Name="singleplayer" Content="Single Player" HorizontalAlignment="Center"  Margin="0,-76,0,0" VerticalAlignment="Center" Click="OpenSingleName" Width="200" Height="60" FontFamily="Impact" FontSize="30" FontWeight="Normal" FontStyle="Normal" BorderBrush="Black" OpacityMask="White" Foreground="Black">
+        <Button Name="singleplayer" Content="Single Player" HorizontalAlignment="Center"  Margin="0,126,0,0" VerticalAlignment="Top" Click="OpenSingleName" Width="200" Height="60" FontFamily="Impact" FontSize="30" FontWeight="Normal" FontStyle="Normal" BorderBrush="Black" OpacityMask="White" Foreground="Black">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF322B2B" Offset="0"/>
@@ -16,7 +16,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Name="multiplayer" Content="Multi Player" HorizontalAlignment="Center"  Margin="0,80,0,0" VerticalAlignment="Center" Click="OpenMultiName" Width="200" Height="60" FontFamily="Impact" FontSize="30" BorderBrush="Black" OpacityMask="White" FontWeight="Normal" FontStyle="Normal" Foreground="Black">
+        <Button Name="multiplayer" Content="Multi Player" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenMultiName" Width="200" Height="60" FontFamily="Impact" FontSize="30" BorderBrush="Black" OpacityMask="White" FontWeight="Normal" FontStyle="Normal" Foreground="Black" Margin="0,201,0,0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF322B2B" Offset="0"/>
@@ -24,5 +24,14 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button x:Name="statistics" Content="Statistics" HorizontalAlignment="Center"  Margin="0,283,0,0" VerticalAlignment="Top" Click="OpenPlayerStats" Width="200" Height="60" FontFamily="Impact" FontSize="30" BorderBrush="Black" OpacityMask="White" FontWeight="Normal" FontStyle="Normal" Foreground="Black">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF322B2B" Offset="0"/>
+                    <GradientStop Color="#FFC5C5C5" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>

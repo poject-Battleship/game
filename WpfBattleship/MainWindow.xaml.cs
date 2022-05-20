@@ -36,5 +36,11 @@ namespace NationalInstruments
             var multiName = new MultiName();
             multiName.ShowDialog();
         }
+
+        private void OpenPlayerStats(object sender, RoutedEventArgs e)
+        {
+            var playerStats = new PlayerStats();
+            playerStats.ShowDialog();
+        }
     }
 }
