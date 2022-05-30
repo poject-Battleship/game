@@ -53,28 +53,105 @@ namespace NationalInstruments
         }
 
         private int _turns = 0;
+        private static readonly string[] planes = new string[]
+        {
+            "Button2", "Button10", "Button51", "Button47"
+        };
+        private static readonly string[] destroyer1 = new string[]
+        {
+            "Button6", "Button7"
+        };
+        private static readonly string[] destroyer2 = new string[]
+        {
+            "Button65", "Button66"
+        };
+        private static readonly string[] destroyer3 = new string[]
+        {
+            "Button73", "Button83"
+        };
+        private static readonly string[] cruiser1 = new string[]
+        {
+            "Button24", "Button34", "Button44"
+        };
+        private static readonly string[] cruiser2 = new string[]
+        {
+            "Button28", "Button29", "Button30"
+        };
+        private static readonly string[] motherShip = new string[]
+        {
+            "Button59", "Button69", "Button79", "Button89"
+        };
+ 
         private static readonly string[] _ships = new string[]
         {
-            "Button1", "Button12", "Button23",
-            "Button34", "Button45", "Button56",
-            "Button67", "Button78", "Button89",
-            "Button100"
+            "Button2", "Button10", "Button51", "Button47",
+            "Button6", "Button7", "Button65", "Button66", "Button73", "Button83",
+            "Button24", "Button34", "Button44", "Button28", "Button29", "Button30",
+            "Button59", "Button69", "Button79", "Button89"
         };
 
+        List<string> shipList = new List<string>(_ships);
+        List<string> cruiser1List = new List<string>(cruiser1);
+        List<string> cruiser2List = new List<string>(cruiser2);
+        List<string> motherShipList = new List<string>(motherShip);
+
         bool isGameOver = false;
-        int shipsSunk = 0;
+        int shipsSunk = 10;
+        int hits = 0;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
+            b.IsHitTestVisible = false;
 
-            if (_ships.Contains(b.Name))
+            if (shipList.Contains(b.Name))
             {
                 b.Background = b.Background == Brushes.Red
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Red;
-                shipsSunk++;
-                if (shipsSunk == 10)
+
+                if (planes.Contains(b.Name))
+                {
+                    shipsSunk--;
+                }
+
+                if (destroyer1.Contains(b.Name) && (!shipList.Contains(destroyer1[0]) || !shipList.Contains(destroyer1[1])))
+                {
+                    shipsSunk--;
+                }
+
+                if (destroyer2.Contains(b.Name) && (!shipList.Contains(destroyer2[0]) || !shipList.Contains(destroyer2[1])))
+                {
+                    shipsSunk--;
+                }
+
+                if (destroyer3.Contains(b.Name) && (!shipList.Contains(destroyer3[0]) || !shipList.Contains(destroyer3[1])))
+                {
+                    shipsSunk--;
+                }
+
+                if (cruiser1List.Contains(b.Name) && cruiser1List.Count == 1)
+                {
+                    shipsSunk--;
+                }
+
+                if (cruiser2List.Contains(b.Name) && cruiser2List.Count == 1)
+                {
+                    shipsSunk--;
+                }
+
+                if (motherShipList.Contains(b.Name) && motherShipList.Count == 1)
+                {
+                    shipsSunk--;
+                }
+
+                cruiser1List.Remove(b.Name);
+                cruiser2List.Remove(b.Name);
+                motherShipList.Remove(b.Name);
+                shipList.Remove(b.Name);
+                hits++;
+
+                if (hits == 20)
                 {
                     isGameOver = true;
                 }
@@ -87,12 +164,12 @@ namespace NationalInstruments
             }
             _turns++;
             this.turnsTaken.Text = "Turns: " + _turns;
-            this.numberOfHits.Text = "My hits: " + shipsSunk;
+            this.numberOfHits.Text = "My hits: " + hits;
             this.enemyHits.Text = "Enemy hits: ";
-            this.shipsRemaining.Text = "Available ships: " + (10-shipsSunk);
-            this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
+            this.shipsRemaining.Text = "Available ships: " + shipsSunk;
+            this.numberOfshipsDestroyed.Text = "Destroyed ships: " + (10 - shipsSunk);
             using var ctx = new TorpedoContext();
-            //ctx.Database.EnsureCreated();
+            ctx.Database.EnsureCreated();
 
             var game = new Game(null, "single");
             ctx.Game.Add(game);
@@ -101,7 +178,7 @@ namespace NationalInstruments
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
-            //ctx.SaveChanges();
+            ctx.SaveChanges();
 
             if (isGameOver)
             {
