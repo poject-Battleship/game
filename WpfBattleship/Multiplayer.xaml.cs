@@ -77,9 +77,9 @@ namespace NationalInstruments
                 }
             }
             Boardd.Visibility = Visibility.Hidden;
-            _player1Name = "Béla";
+            _player1Name = player1Name;
             _player1Hits = 15;
-            _player2Name = "Pista";
+            _player2Name = player2Name;
             _player2Hits = 14;
             _winner = "Béla";
             _numOfRounds = 30;
@@ -92,6 +92,10 @@ namespace NationalInstruments
             "Button1", "Button12", "Button23", "Button34", "Button45", "Button56", "Button67",
             "Button78", "Button89", "Button100"
         };
+
+        private int p1ShipsSunk = 0;
+        private int p2ShipsSunk = 0;
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
@@ -107,6 +111,14 @@ namespace NationalInstruments
                                 ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                                 : Brushes.Red;
                              await Task.Delay(1000);
+                            p1ShipsSunk++;
+                            if (p1ShipsSunk == 10)
+                            {
+                                _winner = _player1Name;
+                                var victory = new Victory(_winner);
+                                victory.ShowDialog();
+                                Close();
+                            }
                         }
                         else
                         {
@@ -130,6 +142,14 @@ namespace NationalInstruments
                                 ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                                 : Brushes.Red;
                             await Task.Delay(1000);
+                            p2ShipsSunk++;
+                            if (p2ShipsSunk == 10)
+                            {
+                                _winner = _player2Name;
+                                var victory = new Victory(_winner);
+                                victory.ShowDialog();
+                                Close();
+                            }
                         }
                         else
                         {

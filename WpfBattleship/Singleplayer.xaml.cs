@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading.Tasks;
 
 namespace NationalInstruments
 {
@@ -45,8 +46,8 @@ namespace NationalInstruments
                 }
             }
 
-            _playerName = "Béla";
-            _winner = "Béla";
+            _playerName = playerName;
+            _winner = playerName;
             _numOfRounds = 30;
             _playerHits = 15;
         }
@@ -60,6 +61,8 @@ namespace NationalInstruments
             "Button100"
         };
 
+        int shipsSunk = 0;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
@@ -69,14 +72,21 @@ namespace NationalInstruments
                 b.Background = b.Background == Brushes.Red
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Red;
+                shipsSunk++;
+                if (shipsSunk == 10)
+                {
+                    var victory = new Victory(_winner);
+                    victory.ShowDialog();
+                    Close();
+                }
             }
             else
             {
                 b.Background = b.Background == Brushes.Cyan
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Cyan;
+                
             }
-
             _turns++;
             
             using var ctx = new TorpedoContext();
