@@ -61,6 +61,7 @@ namespace NationalInstruments
             "Button100"
         };
 
+        bool isGameOver = false;
         int shipsSunk = 0;
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -75,9 +76,7 @@ namespace NationalInstruments
                 shipsSunk++;
                 if (shipsSunk == 10)
                 {
-                    var victory = new Victory(_winner);
-                    victory.ShowDialog();
-                    Close();
+                    isGameOver = true;
                 }
             }
             else
@@ -85,12 +84,15 @@ namespace NationalInstruments
                 b.Background = b.Background == Brushes.Cyan
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Cyan;
-                
             }
             _turns++;
-            
+            this.turnsTaken.Text = "Turns: " + _turns;
+            this.numberOfHits.Text = "My hits: " + shipsSunk;
+            this.enemyHits.Text = "Enemy hits: ";
+            this.shipsRemaining.Text = "Available ships: " + (10-shipsSunk);
+            this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
             using var ctx = new TorpedoContext();
-            ctx.Database.EnsureCreated();
+            //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "single");
             ctx.Game.Add(game);
@@ -99,7 +101,14 @@ namespace NationalInstruments
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
-            ctx.SaveChanges();
+            //ctx.SaveChanges();
+
+            if (isGameOver)
+            {
+                var victory = new Victory(_winner);
+                victory.ShowDialog();
+                Close();
+            }
         }
     }
 }

@@ -24,11 +24,11 @@
                 <RowDefinition Height="357*"/>
             </Grid.RowDefinitions>
             <TextBlock Name="playerName" Text="Player Name" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE2DFDF" Height="31" Width="136" />
-            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Circles number: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" Grid.Row="1" Text="Available ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" Text="Destroyed ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock Name="turnsTaken" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="Turns: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock Name="numberOfHits" HorizontalAlignment="Left" Margin="11,39,0,0" Grid.Row="1" Text="My hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock Name="enemyHits" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" Text="Enemy hits: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock Name="shipsRemaining" HorizontalAlignment="Left" Margin="10,97,0,0" Grid.Row="1" Text="Available ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
+            <TextBlock Name="numberOfshipsDestroyed" HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" Text="Destroyed ships: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#FFE2DFDF"/>
             <Grid Name="Board" Grid.Row="1" VerticalAlignment="Top" Height="355" Margin="0,188,0,0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>

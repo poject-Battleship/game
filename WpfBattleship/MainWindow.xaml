@@ -32,6 +32,5 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
     </Grid>
 </Window>

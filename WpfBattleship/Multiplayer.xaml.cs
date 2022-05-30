@@ -85,6 +85,7 @@ namespace NationalInstruments
             _numOfRounds = 30;
         }
 
+        private int _turns = 0;
         private string[] _ships = new string[]
         {
             "EnemyButton1", "EnemyButton12", "EnemyButton23", "EnemyButton34", "EnemyButton45",
@@ -93,6 +94,7 @@ namespace NationalInstruments
             "Button78", "Button89", "Button100"
         };
 
+        bool isGameOver = false;
         private int p1ShipsSunk = 0;
         private int p2ShipsSunk = 0;
 
@@ -105,6 +107,7 @@ namespace NationalInstruments
                 case GameState.Player1:
                     if (_p1Territory.Contains(b))
                     {
+                        _turns++;
                         if (_ships.Contains(b.Name))
                         {
                              b.Background = b.Background == Brushes.Red
@@ -115,9 +118,7 @@ namespace NationalInstruments
                             if (p1ShipsSunk == 10)
                             {
                                 _winner = _player1Name;
-                                var victory = new Victory(_winner);
-                                victory.ShowDialog();
-                                Close();
+                                isGameOver = true;
                             }
                         }
                         else
@@ -146,9 +147,7 @@ namespace NationalInstruments
                             if (p2ShipsSunk == 10)
                             {
                                 _winner = _player2Name;
-                                var victory = new Victory(_winner);
-                                victory.ShowDialog();
-                                Close();
+                                isGameOver = true;
                             }
                         }
                         else
@@ -164,8 +163,21 @@ namespace NationalInstruments
                     _currentState = GameState.Player1;
                     break;
             }
+
+            this.p1turnsTaken.Text = "Turns: " + _turns;
+            this.p1numberOfHits.Text = "My hits: " + p1ShipsSunk;
+            this.p1enemyHits.Text = "Enemy hits: ";
+            this.p1shipsRemaining.Text = "Available ships: " + (10 - p1ShipsSunk);
+            this.p1numberOfshipsDestroyed.Text = "Destroyed ships: " + p1ShipsSunk;
+
+            this.p2turnsTaken.Text = "Turns: " + _turns;
+            this.p2numberOfHits.Text = "My hits: " + p2ShipsSunk;
+            this.p2enemyHits.Text = "Enemy hits: ";
+            this.p2shipsRemaining.Text = "Available ships: " + (10 - p2ShipsSunk);
+            this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + p2ShipsSunk;
+
             using var ctx = new TorpedoContext();
-            ctx.Database.EnsureCreated();
+            //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "multi");
             ctx.Game.Add(game);
@@ -174,7 +186,14 @@ namespace NationalInstruments
             ctx.Torpedo.Add(torpedoStatP1);
             ctx.Torpedo.Add(torpedoStatP2);
 
-            ctx.SaveChanges();
+            //ctx.SaveChanges();
+
+            if (isGameOver)
+            {
+                var victory = new Victory(_winner);
+                victory.ShowDialog();
+                Close();
+            }
         }
     }
 }
