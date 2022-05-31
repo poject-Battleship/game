@@ -41,7 +41,24 @@ namespace NationalInstruments
                     Grid.SetColumn(myControl1, j);
                     Grid.SetRow(myControl1, i);
                     Board.Children.Add(myControl1);
+                    count++;
+                }
+            }
 
+            count = 1;
+            for (int i = 1; i < 11; i++)
+            {
+                for (int j = 1; j < 11; j++)
+                {
+                    Button myControl1 = new Button();
+                    myControl1.Content = count.ToString(new CultureInfo("hu-HU"));
+                    myControl1.Name = "E_Button" + count.ToString(new CultureInfo("hu-HU"));
+                    myControl1.Click += new RoutedEventHandler(Button_Click);
+                    Grid.SetColumn(myControl1, j);
+                    Grid.SetRow(myControl1, i);
+                    myControl1.IsHitTestVisible = false;
+                    Boardd.Children.Add(myControl1);
+                    RegisterName(myControl1.Name, myControl1);
                     count++;
                 }
             }
@@ -107,6 +124,17 @@ namespace NationalInstruments
         int shipsSunk = 0;
         int hits = 0;
         private int _turns = 0;
+
+        public Random a = new Random();
+        public List<int> randomList = new List<int>();
+        int MyNumber = 0;
+        private void NewNumber()
+        {
+            MyNumber = a.Next(1, 100);
+            if (!randomList.Contains(MyNumber))
+            { randomList.Add(MyNumber); }
+            else { NewNumber(); }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -177,13 +205,20 @@ namespace NationalInstruments
             this.enemyHits.Text = "Enemy hits: ";
             this.shipsRemaining.Text = "Available ships: " + (10 - shipsSunk);
             this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
-            using var ctx = new TorpedoContext();
+
+            NewNumber();
+            string button_name = "E_Button"+MyNumber.ToString();
+
+            Button ai_button = (Button)this.FindName(button_name);
+            ai_button.Background = Brushes.Blue;
+
+           /* using var ctx = new TorpedoContext();
             //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "single");
             ctx.Game.Add(game);
             var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
-            ctx.Torpedo.Add(torpedoStat);
+            ctx.Torpedo.Add(torpedoStat);*/
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
