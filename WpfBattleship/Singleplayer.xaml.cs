@@ -67,8 +67,9 @@ namespace NationalInstruments
             _winner = playerName;
             _numOfRounds = _turns;
             _playerHits = hits;
-        }
 
+           
+        }
         private void ShowAISHips(object sender, KeyEventArgs e)
         {
             if (Keyboard.IsKeyDown(Key.S) && Keyboard.IsKeyDown(Key.B))
@@ -115,7 +116,9 @@ namespace NationalInstruments
             "Button59", "Button69", "Button79", "Button89"
         };
 
+
         List<string> shipList = new List<string>(_ships);
+        List<string> enemyShipList = new List<string>(_ships);
         List<string> cruiser1List = new List<string>(cruiser1);
         List<string> cruiser2List = new List<string>(cruiser2);
         List<string> motherShipList = new List<string>(motherShip);
@@ -124,17 +127,21 @@ namespace NationalInstruments
         int shipsSunk = 0;
         int hits = 0;
         private int _turns = 0;
-
-        public Random a = new Random();
-        public List<int> randomList = new List<int>();
-        int MyNumber = 0;
+        
+        List<int> randomList = new List<int>();
+        public Random r = new Random();
+        int shipNumber = 0;
         private void NewNumber()
         {
-            MyNumber = a.Next(1, 100);
-            if (!randomList.Contains(MyNumber))
-            { randomList.Add(MyNumber); }
-            else { NewNumber(); }
+                shipNumber = r.Next(1,100);
+                if (!randomList.Contains(shipNumber))
+                {
+                    randomList.Add(shipNumber);
+                }
+                else { NewNumber(); }
         }
+
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -146,7 +153,7 @@ namespace NationalInstruments
                 b.Background = b.Background == Brushes.Red
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Red;
-
+                
                 if (planes.Contains(b.Name))
                 {
                     shipsSunk++;
@@ -207,18 +214,23 @@ namespace NationalInstruments
             this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
 
             NewNumber();
-            string button_name = "E_Button"+MyNumber.ToString();
+            string button_name = "E_Button" + shipNumber.ToString();
 
             Button ai_button = (Button)this.FindName(button_name);
-            ai_button.Background = Brushes.Blue;
 
-           /* using var ctx = new TorpedoContext();
-            //ctx.Database.EnsureCreated();
+            if (enemyShipList.Contains(button_name.Substring(2)))
+            {
+                ai_button.Background = Brushes.Red;
+            }
+            else {ai_button.Background = Brushes.Cyan; }
 
-            var game = new Game(null, "single");
-            ctx.Game.Add(game);
-            var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
-            ctx.Torpedo.Add(torpedoStat);*/
+            /* using var ctx = new TorpedoContext();
+             //ctx.Database.EnsureCreated();
+
+             var game = new Game(null, "single");
+             ctx.Game.Add(game);
+             var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
+             ctx.Torpedo.Add(torpedoStat);*/
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
