@@ -32,7 +32,6 @@ namespace NationalInstruments
         private int _numOfRounds;
         private int _player1Hits;
         private int _player2Hits;
-
         public Multiplayer(string player1Name, string player2Name)
         {
             InitializeComponent();
@@ -78,14 +77,13 @@ namespace NationalInstruments
             }
             Boardd.Visibility = Visibility.Hidden;
             _player1Name = player1Name;
-            _player1Hits = 15;
+            _player1Hits = p1hits;
             _player2Name = player2Name;
-            _player2Hits = 14;
-            _winner = "Béla";
-            _numOfRounds = 30;
+            _player2Hits = p2hits;
+            _winner = _winner;
+            _numOfRounds = _turns;
         }
 
-        
         private static readonly string[] p1planes = new string[]
         {
             "Button2", "Button10", "Button51", "Button47"
@@ -170,8 +168,8 @@ namespace NationalInstruments
 
         private int _turns = 0;
         bool isGameOver = false;
-        private int p1shipsSunk = 10;
-        private int p2shipsSunk = 10;
+        private int p1shipsSunk = 0;
+        private int p2shipsSunk = 0;
         int p1hits = 0;
         int p2hits = 0;
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -192,37 +190,37 @@ namespace NationalInstruments
                                 : Brushes.Red;
                             if (p1planes.Contains(b.Name))
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1destroyer1.Contains(b.Name) && (!p1shipList.Contains(p1destroyer1[0]) || !p1shipList.Contains(p1destroyer1[1])))
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1destroyer2.Contains(b.Name) && (!p1shipList.Contains(p1destroyer2[0]) || !p1shipList.Contains(p1destroyer2[1])))
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1destroyer3.Contains(b.Name) && (!p1shipList.Contains(p1destroyer3[0]) || !p1shipList.Contains(p1destroyer3[1])))
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1cruiser1List.Contains(b.Name) && p1cruiser1List.Count == 1)
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1cruiser2List.Contains(b.Name) && p1cruiser2List.Count == 1)
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             if (p1motherShipList.Contains(b.Name) && p1motherShipList.Count == 1)
                             {
-                                p1shipsSunk--;
+                                p1shipsSunk++;
                             }
 
                             p1cruiser1List.Remove(b.Name);
@@ -262,37 +260,37 @@ namespace NationalInstruments
 
                             if (p2planes.Contains(b.Name))
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2destroyer1.Contains(b.Name) && (!p2shipList.Contains(p2destroyer1[0]) || !p2shipList.Contains(p2destroyer1[1])))
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2destroyer2.Contains(b.Name) && (!p2shipList.Contains(p2destroyer2[0]) || !p2shipList.Contains(p2destroyer2[1])))
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2destroyer3.Contains(b.Name) && (!p2shipList.Contains(p2destroyer3[0]) || !p2shipList.Contains(p2destroyer3[1])))
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2cruiser1List.Contains(b.Name) && p2cruiser1List.Count == 1)
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2cruiser2List.Contains(b.Name) && p2cruiser2List.Count == 1)
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             if (p2motherShipList.Contains(b.Name) && p2motherShipList.Count == 1)
                             {
-                                p2shipsSunk--;
+                                p2shipsSunk++;
                             }
 
                             p2cruiser1List.Remove(b.Name);
@@ -325,17 +323,17 @@ namespace NationalInstruments
             this.p1turnsTaken.Text = "Turns: " + _turns;
             this.p1numberOfHits.Text = "My hits: " + p1hits;
             this.p1enemyHits.Text = "Enemy hits: " + p2hits;
-            this.p1shipsRemaining.Text = "Available ships: " + p1shipsSunk;
-            this.p1numberOfshipsDestroyed.Text = "Destroyed ships: " + (10 - p1shipsSunk);
+            this.p1shipsRemaining.Text = "Available ships: " + (10 - p1shipsSunk);
+            this.p1numberOfshipsDestroyed.Text = "Destroyed ships: " + p1shipsSunk;
 
             this.p2turnsTaken.Text = "Turns: " + _turns;
             this.p2numberOfHits.Text = "My hits: " + p2hits;
             this.p2enemyHits.Text = "Enemy hits: " + p1hits;
-            this.p2shipsRemaining.Text = "Available ships: " + p2shipsSunk;
-            this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + (10 - p2shipsSunk);
+            this.p2shipsRemaining.Text = "Available ships: " + (10 - p2shipsSunk);
+            this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + p2shipsSunk;
 
             using var ctx = new TorpedoContext();
-            ctx.Database.EnsureCreated();
+            //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "multi");
             ctx.Game.Add(game);
@@ -344,8 +342,7 @@ namespace NationalInstruments
             ctx.Torpedo.Add(torpedoStatP1);
             ctx.Torpedo.Add(torpedoStatP2);
 
-            ctx.SaveChanges();
-
+            //ctx.SaveChanges();
             if (isGameOver)
             {
                 var victory = new Victory(_winner);

@@ -48,11 +48,19 @@ namespace NationalInstruments
 
             _playerName = playerName;
             _winner = playerName;
-            _numOfRounds = 30;
-            _playerHits = 15;
+            _numOfRounds = _turns;
+            _playerHits = hits;
         }
 
-        private int _turns = 0;
+        private void ShowAISHips(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.S) && Keyboard.IsKeyDown(Key.B))
+            {
+                var aiShips = new AIShips();
+                aiShips.Show();
+            }
+        }
+
         private static readonly string[] planes = new string[]
         {
             "Button2", "Button10", "Button51", "Button47"
@@ -96,8 +104,9 @@ namespace NationalInstruments
         List<string> motherShipList = new List<string>(motherShip);
 
         bool isGameOver = false;
-        int shipsSunk = 10;
+        int shipsSunk = 0;
         int hits = 0;
+        private int _turns = 0;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -112,37 +121,37 @@ namespace NationalInstruments
 
                 if (planes.Contains(b.Name))
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (destroyer1.Contains(b.Name) && (!shipList.Contains(destroyer1[0]) || !shipList.Contains(destroyer1[1])))
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (destroyer2.Contains(b.Name) && (!shipList.Contains(destroyer2[0]) || !shipList.Contains(destroyer2[1])))
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (destroyer3.Contains(b.Name) && (!shipList.Contains(destroyer3[0]) || !shipList.Contains(destroyer3[1])))
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (cruiser1List.Contains(b.Name) && cruiser1List.Count == 1)
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (cruiser2List.Contains(b.Name) && cruiser2List.Count == 1)
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 if (motherShipList.Contains(b.Name) && motherShipList.Count == 1)
                 {
-                    shipsSunk--;
+                    shipsSunk++;
                 }
 
                 cruiser1List.Remove(b.Name);
@@ -166,10 +175,10 @@ namespace NationalInstruments
             this.turnsTaken.Text = "Turns: " + _turns;
             this.numberOfHits.Text = "My hits: " + hits;
             this.enemyHits.Text = "Enemy hits: ";
-            this.shipsRemaining.Text = "Available ships: " + shipsSunk;
-            this.numberOfshipsDestroyed.Text = "Destroyed ships: " + (10 - shipsSunk);
+            this.shipsRemaining.Text = "Available ships: " + (10 - shipsSunk);
+            this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
             using var ctx = new TorpedoContext();
-            ctx.Database.EnsureCreated();
+            //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "single");
             ctx.Game.Add(game);
@@ -178,7 +187,7 @@ namespace NationalInstruments
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
-            ctx.SaveChanges();
+            //ctx.SaveChanges();
 
             if (isGameOver)
             {
