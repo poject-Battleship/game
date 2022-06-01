@@ -65,8 +65,6 @@ namespace NationalInstruments
 
             _playerName = playerName;
             _winner = playerName;
-            _numOfRounds = _turns;
-            _playerHits = hits;
 
             Random first = new Random();
             int aiStart = first.Next(0,2);
@@ -279,20 +277,21 @@ namespace NationalInstruments
                 isGameOver = true;
             }
 
-             using var ctx = new TorpedoContext();
-             ctx.Database.EnsureCreated();
-
-             var game = new Game(null, "single");
-             ctx.Game.Add(game);
-             var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
-             ctx.Torpedo.Add(torpedoStat);
-
-            //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
-
-            ctx.SaveChanges();
-
             if (isGameOver)
             {
+                _numOfRounds = _turns;
+                _playerHits = hits;
+                
+                using var ctx = new TorpedoContext();
+                ctx.Database.EnsureCreated();
+
+                var game = new Game(null, "single");
+                ctx.Game.Add(game);
+                var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
+                ctx.Torpedo.Add(torpedoStat);
+
+                ctx.SaveChanges();
+
                 var victory = new Victory(_winner);
                 victory.ShowDialog();
                 Close();

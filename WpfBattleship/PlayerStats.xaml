@@ -38,7 +38,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Player Name" Binding="{Binding PlayerName}" Width="100"/>
                     <DataGridTextColumn Header="Winner" Binding="{Binding Winner}" Width="75"/>
-                    <DataGridTextColumn Header="Number of Rounds" Binding="{Binding NumberOfRounds}" Width="105"/>
+                    <DataGridTextColumn Header="Number of Rounds" Binding="{Binding NumOfRounds}" Width="105"/>
                     <DataGridTextColumn Header="Player Hits" Binding="{Binding PlayerHits}" Width="68"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -66,7 +66,7 @@
                     <DataGridTextColumn Header="Player 1 Name" Binding="{Binding PlayerName}" Width="100"/>
                     <DataGridTextColumn Header="Player 2 Name" Binding="{Binding PlayerName}" Width="100"/>
                     <DataGridTextColumn Header="Winner" Binding="{Binding Winner}" Width="65"/>
-                    <DataGridTextColumn Header="Number of Rounds" Binding="{Binding NumberOfRounds}" Width="105"/>
+                    <DataGridTextColumn Header="Number of Rounds" Binding="{Binding NumOfRounds}" Width="105"/>
                     <DataGridTextColumn Header="Player Hits" Binding="{Binding PlayerHits}" Width="68"/>
                 </DataGrid.Columns>
             </DataGrid>

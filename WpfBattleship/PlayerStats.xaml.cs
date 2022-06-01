@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,13 +21,29 @@ namespace NationalInstruments
         public PlayerStats()
         {
             InitializeComponent();
-            SinglePlayerDatabase johnSmith = new SinglePlayerDatabase();
-            johnSmith.PlayerName = "John Smith";
-            johnSmith.Winner = "AI";
-            johnSmith.NumberOfRounds = 22;
-            johnSmith.PlayerHits = 10;
+            using var ctx = new TorpedoContext();
+            ctx.Database.EnsureCreated();
 
-            SinglePlayerDataGridXAML.Items.Add(johnSmith);
+            IList<Game> games = ctx.Game.OrderBy(game => game.Id).ToList();
+
+            foreach (var game in games)
+            {
+                IList<TorpedoStats> torpedoStats = ctx.Torpedo.Where(torpedoStat =>
+                    torpedoStat.Game == game).ToList();
+                foreach (var torpedoStat in torpedoStats)
+                {
+                    if (game.GameType.Equals("single"))
+                    {
+                        SinglePlayerDataGridXAML.Items.Add(torpedoStat);
+                    }
+                    else
+                    {
+                        MultiplayerDataGridXAML.Items.Add(torpedoStat);
+                    }
+                }
+            }
+
+            //SinglePlayerDataGridXAML.Items.Add(johnSmith);
         }
 
         public class SinglePlayerDatabase

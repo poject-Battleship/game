@@ -77,11 +77,7 @@ namespace NationalInstruments
             }
             Boardd.Visibility = Visibility.Hidden;
             _player1Name = player1Name;
-            _player1Hits = p1hits;
             _player2Name = player2Name;
-            _player2Hits = p2hits;
-            _winner = _winner;
-            _numOfRounds = _turns;
         }
 
         private static readonly string[] p1planes = new string[]
@@ -330,19 +326,24 @@ namespace NationalInstruments
             this.p2shipsRemaining.Text = "Available ships: " + (10 - p2shipsSunk);
             this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + p2shipsSunk;
 
-            using var ctx = new TorpedoContext();
-            ctx.Database.EnsureCreated();
-
-            var game = new Game(null, "multi");
-            ctx.Game.Add(game);
-            var torpedoStatP1 = new TorpedoStats(null, game, _player1Name, _winner, _numOfRounds, _player1Hits);
-            var torpedoStatP2 = new TorpedoStats(null, game, _player2Name, _winner, _numOfRounds, _player2Hits);
-            ctx.Torpedo.Add(torpedoStatP1);
-            ctx.Torpedo.Add(torpedoStatP2);
-
-            ctx.SaveChanges();
             if (isGameOver)
             {
+                _numOfRounds = _turns;
+                _player1Hits = p1hits;
+                _player2Hits = p2hits;
+                
+                using var ctx = new TorpedoContext();
+                ctx.Database.EnsureCreated();
+
+                var game = new Game(null, "multi");
+                ctx.Game.Add(game);
+                var torpedoStatP1 = new TorpedoStats(null, game, _player1Name, _winner, _numOfRounds, _player1Hits);
+                var torpedoStatP2 = new TorpedoStats(null, game, _player2Name, _winner, _numOfRounds, _player2Hits);
+                ctx.Torpedo.Add(torpedoStatP1);
+                ctx.Torpedo.Add(torpedoStatP2);
+
+                ctx.SaveChanges();
+
                 var victory = new Victory(_winner);
                 victory.ShowDialog();
                 Close();
