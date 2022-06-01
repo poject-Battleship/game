@@ -332,7 +332,7 @@ namespace NationalInstruments
             this.p2shipsRemaining.Text = "Available ships: " + (10 - p2shipsSunk);
             this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + p2shipsSunk;
 
-            /*using var ctx = new TorpedoContext();
+            using var ctx = new TorpedoContext();
             //ctx.Database.EnsureCreated();
 
             var game = new Game(null, "multi");
@@ -340,7 +340,7 @@ namespace NationalInstruments
             var torpedoStatP1 = new TorpedoStats(null, game, _player1Name, _winner, _numOfRounds, _player1Hits);
             var torpedoStatP2 = new TorpedoStats(null, game, _player2Name, _winner, _numOfRounds, _player2Hits);
             ctx.Torpedo.Add(torpedoStatP1);
-            ctx.Torpedo.Add(torpedoStatP2);*/
+            ctx.Torpedo.Add(torpedoStatP2);
 
             //ctx.SaveChanges();
             if (isGameOver)

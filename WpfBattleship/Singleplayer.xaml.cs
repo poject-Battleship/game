@@ -134,18 +134,59 @@ namespace NationalInstruments
         int hits = 0;
         private int _turns = 0;
         int aiHits = 0;
+        bool shipHit = false;
         
         List<int> randomList = new List<int>();
+        List<int> nextHitList = new List<int>();
         public Random r = new Random();
         int shipNumber = 0;
         private void NewNumber()
         {
-                shipNumber = r.Next(1,100);
+            if (!shipHit && nextHitList.Count == 0)
+            {
+                shipNumber = r.Next(1, 100);
                 if (!randomList.Contains(shipNumber))
                 {
                     randomList.Add(shipNumber);
                 }
                 else { NewNumber(); }
+            }
+            else
+            {
+                shipNumber = nextHitList.Last();
+                nextHitList.RemoveAt(nextHitList.Count - 1);
+                if (nextHitList.Count == 0)
+                {
+                    shipHit = false;
+                }
+            }
+        }
+
+        private void IsValidHit()
+        {
+            if (shipNumber - 10 > 0 && !randomList.Contains(shipNumber - 10))
+            {
+                nextHitList.Add(shipNumber - 10);
+                randomList.Add(shipNumber - 10);
+            }
+
+            if (shipNumber + 10 < 101 && !randomList.Contains(shipNumber + 10))
+            {
+                nextHitList.Add(shipNumber + 10);
+                randomList.Add(shipNumber + 10);
+            }
+
+            if (shipNumber % 10 != 1 && !randomList.Contains(shipNumber - 1))
+            {
+                nextHitList.Add(shipNumber - 1);
+                randomList.Add(shipNumber - 1);
+            }
+
+            if (shipNumber % 10 != 0 && !randomList.Contains(shipNumber + 1))
+            {
+                nextHitList.Add(shipNumber + 1);
+                randomList.Add(shipNumber + 1);
+            }
         }
 
         private void AI_Move()
@@ -158,7 +199,9 @@ namespace NationalInstruments
                 if (enemyShipList.Contains(button_name.Substring(2)))
                 {
                     ai_button.Background = Brushes.Red;
+                shipHit = true;
                 aiHits++;
+                IsValidHit();
                 }
                 else { ai_button.Background = Brushes.Cyan; }
         }
@@ -238,15 +281,16 @@ namespace NationalInstruments
             if (aiHits == 20) 
             {
                 _winner = "Enemy";
-                isGameOver = true;            }
+                isGameOver = true;            
+            }
 
-            /* using var ctx = new TorpedoContext();
+             using var ctx = new TorpedoContext();
              //ctx.Database.EnsureCreated();
 
              var game = new Game(null, "single");
              ctx.Game.Add(game);
              var torpedoStat = new TorpedoStats(null, game, _playerName, _winner, _numOfRounds, _playerHits);
-             ctx.Torpedo.Add(torpedoStat);*/
+             ctx.Torpedo.Add(torpedoStat);
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
