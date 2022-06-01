@@ -35,7 +35,7 @@ namespace NationalInstruments
                 }
                 i++;
             }
-            if (specialDigit == false)
+            if (specialDigit == false && playerNameTextBox.Length > 0)
             {
                 var singlePlayer = new SinglePlayer(playerNameTextBox);
                 singlePlayer.ShowDialog();

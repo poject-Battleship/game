@@ -38,7 +38,7 @@ namespace NationalInstruments
                 }
                 i++;
             }
-            if (specialDigit == false)
+            if (specialDigit == false && player1name.Length > 0 && player2name.Length > 0)
             {
                 var multiplayer = new Multiplayer(player1name, player2name);
                 multiplayer.ShowDialog();

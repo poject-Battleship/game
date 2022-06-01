@@ -68,6 +68,12 @@ namespace NationalInstruments
             _numOfRounds = _turns;
             _playerHits = hits;
 
+            Random first = new Random();
+            int aiStart = first.Next(0,2);
+            if (aiStart == 1)
+            {
+                AI_Move();
+            }
            
         }
         private void ShowAISHips(object sender, KeyEventArgs e)
@@ -127,6 +133,7 @@ namespace NationalInstruments
         int shipsSunk = 0;
         int hits = 0;
         private int _turns = 0;
+        int aiHits = 0;
         
         List<int> randomList = new List<int>();
         public Random r = new Random();
@@ -141,6 +148,20 @@ namespace NationalInstruments
                 else { NewNumber(); }
         }
 
+        private void AI_Move()
+        {
+                NewNumber();
+                string button_name = "E_Button" + shipNumber.ToString();
+
+                Button ai_button = (Button)this.FindName(button_name);
+
+                if (enemyShipList.Contains(button_name.Substring(2)))
+                {
+                    ai_button.Background = Brushes.Red;
+                aiHits++;
+                }
+                else { ai_button.Background = Brushes.Cyan; }
+        }
         
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -213,16 +234,11 @@ namespace NationalInstruments
             this.shipsRemaining.Text = "Available ships: " + (10 - shipsSunk);
             this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
 
-            NewNumber();
-            string button_name = "E_Button" + shipNumber.ToString();
-
-            Button ai_button = (Button)this.FindName(button_name);
-
-            if (enemyShipList.Contains(button_name.Substring(2)))
+            AI_Move();
+            if (aiHits == 20) 
             {
-                ai_button.Background = Brushes.Red;
-            }
-            else {ai_button.Background = Brushes.Cyan; }
+                _winner = "Enemy";
+                isGameOver = true;            }
 
             /* using var ctx = new TorpedoContext();
              //ctx.Database.EnsureCreated();
