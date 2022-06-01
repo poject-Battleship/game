@@ -74,7 +74,6 @@ namespace NationalInstruments
             {
                 AI_Move();
             }
-           
         }
         private void ShowAISHips(object sender, KeyEventArgs e)
         {
@@ -135,7 +134,6 @@ namespace NationalInstruments
         private int _turns = 0;
         int aiHits = 0;
         bool shipHit = false;
-        
         List<int> randomList = new List<int>();
         List<int> nextHitList = new List<int>();
         public Random r = new Random();
@@ -161,7 +159,6 @@ namespace NationalInstruments
                 }
             }
         }
-
         private void IsValidHit()
         {
             if (shipNumber - 10 > 0 && !randomList.Contains(shipNumber - 10))
@@ -188,7 +185,6 @@ namespace NationalInstruments
                 randomList.Add(shipNumber + 1);
             }
         }
-
         private void AI_Move()
         {
                 NewNumber();
@@ -205,7 +201,6 @@ namespace NationalInstruments
                 }
                 else { ai_button.Background = Brushes.Cyan; }
         }
-        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -217,7 +212,7 @@ namespace NationalInstruments
                 b.Background = b.Background == Brushes.Red
                     ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDDDDDD"))
                     : Brushes.Red;
-                
+
                 if (planes.Contains(b.Name))
                 {
                     shipsSunk++;
@@ -278,14 +273,14 @@ namespace NationalInstruments
             this.numberOfshipsDestroyed.Text = "Destroyed ships: " + shipsSunk;
 
             AI_Move();
-            if (aiHits == 20) 
+            if (aiHits == 20)
             {
                 _winner = "Enemy";
-                isGameOver = true;            
+                isGameOver = true;
             }
 
              using var ctx = new TorpedoContext();
-             //ctx.Database.EnsureCreated();
+             ctx.Database.EnsureCreated();
 
              var game = new Game(null, "single");
              ctx.Game.Add(game);
@@ -294,7 +289,7 @@ namespace NationalInstruments
 
             //ctx.Torpedo.Where(stat => stat.Game.GameType == "single");
 
-            //ctx.SaveChanges();
+            ctx.SaveChanges();
 
             if (isGameOver)
             {

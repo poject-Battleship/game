@@ -155,8 +155,6 @@ namespace NationalInstruments
             "EnemyButton59", "EnemyButton69", "EnemyButton79", "EnemyButton89"
         };
 
-
-
         List<string> p1shipList = new List<string>(p1ships);
         List<string> p1cruiser1List = new List<string>(p1cruiser1);
         List<string> p1cruiser2List = new List<string>(p1cruiser2);
@@ -333,7 +331,7 @@ namespace NationalInstruments
             this.p2numberOfshipsDestroyed.Text = "Destroyed ships: " + p2shipsSunk;
 
             using var ctx = new TorpedoContext();
-            //ctx.Database.EnsureCreated();
+            ctx.Database.EnsureCreated();
 
             var game = new Game(null, "multi");
             ctx.Game.Add(game);
@@ -342,7 +340,7 @@ namespace NationalInstruments
             ctx.Torpedo.Add(torpedoStatP1);
             ctx.Torpedo.Add(torpedoStatP2);
 
-            //ctx.SaveChanges();
+            ctx.SaveChanges();
             if (isGameOver)
             {
                 var victory = new Victory(_winner);
